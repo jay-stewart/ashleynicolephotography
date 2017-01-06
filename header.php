@@ -18,7 +18,9 @@
 
 <!-- Short description of the page (limit to 150 characters) -->
 <!-- In *some* situations this description is used as a part of the snippet shown in the search results. -->
-<meta name="description" content="A description of the page">
+<!-- bloginfo('description') simply puts the side description into the tag, probably not enough -->
+<meta name="description" content="<?php bloginfo('description'); ?>" />
+
 <link rel="icon" href="http://www.ashleynicolephotography.ca/wp-content/uploads/2016/02/favicon.ico" type="image/x-icon">
 
 <?php wp_head(); ?> 
