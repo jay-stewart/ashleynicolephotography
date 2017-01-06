@@ -68,23 +68,23 @@ if(have_posts()){
                                         <a href="<?php echo $link ?>"></a>
 
                                         <?php if($item_grid_class == 5){ ?>
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
                                    
                                         <?php } ?>
                                         <?php if($item_grid_class == 3){ ?>
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
                                    
                                         <?php } ?>
                                         <?php if($item_grid_class == 4){ ?>
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
                                           
 						 <?php } ?>
                                         <?php if($item_grid_class == 6){ ?>
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port2', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port2', 'url')) ?>" alt="">
                                          
 						<?php } ?>
                                         <?php if($item_grid_class == 12){ ?>
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port1', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port1', 'url')) ?>" alt="">
                                        	 
 						 <?php } ?>
                                        <div class="overlay he-view">
@@ -106,23 +106,23 @@ if(have_posts()){
               <div class="portfolio-item mix <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?>  <?php echo esc_attr($style) ?>" data-id="<?php echo get_the_ID() ?>">
                                         <div class="">
                                             <?php if($item_grid_class == 5){  ?>
-                                                <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
+                                                <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
                                            
                                             <?php } ?>
                                             <?php if($item_grid_class == 3){  ?>
-                                                <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
+                                                <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port4', 'url')) ?>" alt="">
                                            
                                             <?php } ?>
                                             <?php if($item_grid_class == 4){ ?>
-                                                <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port3_grayscale', 'url')) ?>" alt="">
+                                                <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port3_grayscale', 'url')) ?>" alt="">
                                           
                              <?php } ?>
                                             <?php if($item_grid_class == 6){ ?>
-                                                <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port2_grayscale', 'url')) ?>" alt="">
+                                                <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port2_grayscale', 'url')) ?>" alt="">
                                             
                             <?php } ?>
                                             <?php if($item_grid_class == 12){ ?>
-                                                <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port1', 'url')) ?>" alt="">
+                                                <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port1', 'url')) ?>" alt="">
                                           
                              <?php } ?>
                                            <div class="project">
@@ -144,12 +144,12 @@ if(have_posts()){
                  <div class="portfolio-item mix <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?>  <?php echo esc_attr($style) ?>" data-id="<?php echo get_the_ID() ?>">
                     <div class="he-wrap tpl2">
                         <?php if($columns == 5) $columns = 4; ?>                
-                        <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port'.$columns, 'url')) ?>" alt="">
+                        <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port'.$columns, 'url')) ?>" alt="">
                                      
                         <div class="overlay he-view">
                             <div class="bg a0" data-animate="fadeIn">
                                 <div class="center-bar v1">
-                                    <a href="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), array("width"=> 1200, "height" => 1200), "url")) ?>" class="link a2 lightbox-gallery lightbox" data-animate="fadeInRight"><i class="moon-search-3"></i></a></a>
+                                    <a href="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), array("width"=> 1200, "height" => 1200), "url")) ?>" class="link a2 lightbox-gallery lightbox" data-animate="fadeInRight"><i class="moon-search-3"></i></a></a>
                                     <a href="<?php echo $link ?>" class="link a1" data-animate="fadeInLeft"><i class="moon-link-4"></i></a></a>
                                 </div>
                              </div> 
@@ -169,7 +169,7 @@ if(have_posts()){
                 <div class="portfolio-item mix <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?>  <?php echo esc_attr($style) ?>" data-id="<?php echo get_the_ID() ?>">
                     <div class="overlay">
                         <div class="bar"></div>
-                        <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'staff_full', 'url')) ?>" alt="">
+                        <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'staff_full', 'url')) ?>" alt="">
                         <span>
                             <a href="<?php echo $link ?>" class="btn-bt <?php echo $cl_redata['overall_button_style'][0] ?>"><?php _e('View', 'codeless') ?></a>
                         </span>

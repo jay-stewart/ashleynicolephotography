@@ -14,7 +14,7 @@ if (have_posts()) :
         ?> 
         <article id="post-<?php echo the_ID(); ?>" <?php echo post_class('blog-article fullscreen-single '.$font_color.' intro-effect-push'); ?>>
 			<div class="header_fullscreen_single">
-				<div class="bg-img" style="background-image:url(<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), '', 'url')) ?>)"></div>
+				<div class="bg-img" style="background-image:url(<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), '', 'url')) ?>)"></div>
 				<div class="title">
 					<h1><?php echo esc_html($title) ?></h1>
 				</div>

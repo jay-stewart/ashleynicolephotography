@@ -10,7 +10,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
         <?php if(!empty($cl_redata['single_portfolio_gallery'])): foreach($cl_redata['single_portfolio_gallery'] as $slide): ?>
         <a class="lightbox-gallery" href="<?php echo esc_url($slide['image']) ?>" title="">
             <div class="visual lightbox">
-                <img src="<?php echo esc_url(codeless_image_by_id($slide['attachment_id'], 'port3', 'url'))  ?>" alt="">
+                <img src="<?php echo esc_url(anp_image_by_id($slide['attachment_id'], 'port3', 'url'))  ?>" alt="">
                 <span class="moon-zoom"></span>
             </div>
         </a>

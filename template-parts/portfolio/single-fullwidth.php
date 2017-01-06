@@ -7,7 +7,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
 
 <div class="media">
     <?php if($cl_redata['single_portfolio_media'] == 'featured'): ?>
-        <div class="featured" style="background-image:url('<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>');"></div>
+        <div class="featured" style="background-image:url('<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>');"></div>
     <?php endif; ?>
     <?php 
         if($cl_redata['single_portfolio_media'] == 'slideshow'): 

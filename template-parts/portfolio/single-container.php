@@ -39,7 +39,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
             <div class="media">
                 
                 <?php if($cl_redata['single_portfolio_media'] == 'featured'): ?>
-                    <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
+                    <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
                 <?php endif; ?>
                 <?php 
                     if($cl_redata['single_portfolio_media'] == 'slideshow'): 
@@ -120,7 +120,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
     <?php if($cl_redata['single_portfolio_content_position_container'] == 'bottom'): ?>
     <div class="media">
         <?php if($cl_redata['single_portfolio_media'] == 'featured'): ?>
-            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
+            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
         <?php endif; ?>
         <?php 
             if($cl_redata['single_portfolio_media'] == 'slideshow'): 
@@ -208,7 +208,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
 
     <div class="media">
         <?php if($cl_redata['single_portfolio_media'] == 'featured'): ?>
-            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
+            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), '', 'url'))  ?>" alt="">
         <?php endif; ?>
         <?php 
             if($cl_redata['single_portfolio_media'] == 'slideshow'): 

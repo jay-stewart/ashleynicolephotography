@@ -64,7 +64,7 @@ get_header();
                 <div>
                     <h3><?php echo esc_html(get_previous_post()->post_title); ?></h3>
                     <?php if(has_post_thumbnail(get_previous_post()->ID)): ?>
-                    <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(get_previous_post()->ID), 'blog_grid', 'url')) ?>" alt="Previous thumb"/>
+                    <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(get_previous_post()->ID), 'blog_grid', 'url')) ?>" alt="Previous thumb"/>
                     <?php endif; ?>
                 </div>
             </a>
@@ -76,7 +76,7 @@ get_header();
                 <div>
                     <h3><?php echo esc_html(get_next_post()->post_title); ?></h3>
                     <?php if(has_post_thumbnail(get_next_post()->ID)): ?>
-                    <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(get_next_post()->ID), 'blog_grid', 'url')) ?>" alt="Next thumb"/>
+                    <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(get_next_post()->ID), 'blog_grid', 'url')) ?>" alt="Next thumb"/>
                     <?php endif; ?>
                 </div>
             </a>

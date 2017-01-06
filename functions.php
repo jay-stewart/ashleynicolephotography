@@ -7,13 +7,28 @@
  *
  * @global int $content_width
  
- https://codex.wordpress.org/Content_Width
+
  
  */
 
-if ( ! isset( $content_width ) ) {
-	$content_width = 600;
+/**
+ * https://codex.wordpress.org/Content_Width
+ * Sets the content width in pixels, based on the theme's design and stylesheet.
+ * Priority 0 to make it available to lower priority callbacks.
+ * @global int $content_width
+ *
+ * snippet from Twenty Sixteen theme
+
+ 
+ not sure yet if i need this
+ 
+ 
+ 
+function anp_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'anp_content_width', 555 );
 }
+add_action( 'after_setup_theme', 'anp_content_width', 0 );
+ */
 
 
 /**
@@ -28,15 +43,20 @@ function anp_scripts() {
     wp_enqueue_style( 'normalize-css', get_template_directory_uri() . '/css/normalize.css');
 	wp_enqueue_style( 'bootstrap-custom-css', get_template_directory_uri() . '/css/bootstrap-custom.css');
 	wp_enqueue_style( 'skeleton-custom-css', get_template_directory_uri() . '/css/skeleton-custom.css');
+	wp_enqueue_style( 'wordpress-styles-css', get_template_directory_uri() . '/css/wordpress-styles.css');
 	wp_enqueue_style( 'all-styles-css', get_template_directory_uri() . '/css/all-style.css');
     
 	wp_enqueue_script( 'anp-script', get_template_directory_uri() . '/js/main.js', array('jquery'), 1, true);
+	
+	/* localize script outputs variable to html as <script> */
  		wp_localize_script( 'anp-script', 'php_vars', array( 	get_theme_mod ('anp_slider_one_image'),
 																get_theme_mod ('anp_slider_two_image'),
 																get_theme_mod ('anp_slider_three_image'),
 																get_theme_mod ('anp_slider_four_image'),
 																get_theme_mod ('anp_slider_five_image'), )
 							);
+							
+							
 	wp_enqueue_script( 'backstretch-js', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), 1, true );
 
 }
@@ -46,12 +66,19 @@ add_action( 'wp_enqueue_scripts', 'anp_scripts' );
 
 
 
-
+/* https://codex.wordpress.org/Theme_Features */
 
 function anp_theme_support(){
+	
     add_theme_support( 'post-thumbnails' );
+	
+	/*  This feature adds RSS feed links to HTML <head>.
+		https://codex.wordpress.org/Automatic_Feed_Links	
     add_theme_support( 'automatic-feed-links' );
+	*/
+	
     add_theme_support( 'menus' );
+
     //add_theme_support( 'post-formats', array( 'quote', 'gallery','video', 'audio' ) ); 
 	add_theme_support( 'title-tag' );
 }
@@ -60,19 +87,7 @@ function anp_theme_support(){
 
 function anp_images_sizes(){
     
-    add_image_size( 'port3', 600, 600, true );
-    add_image_size( 'port3_grayscale', 627, 470, true );
-    add_image_size( 'port2', 460, 275, true );
-    add_image_size( 'port2_grayscale', 940, 470, true );
-    add_image_size( 'port4', 600, 600, true );
-
-    add_image_size( 'blog', 825, 340, true );
-    add_image_size( 'alternate_blog', 440, 195, true );
-    add_image_size( 'alternate_blog_side', 355, 235, true );
-    add_image_size( 'blog_grid', 350, 350, true );
-
-    add_image_size( 'staff', 400, 270, true );
-    add_image_size( 'staff_full', 500, 340, true );
+    add_image_size( 'featured', 825, 340, true );
 
 }
 
@@ -83,6 +98,22 @@ function anp_navigation_menus(){
 	
 	register_nav_menu( 'main-nav', 'Main Navigation' ); 
 }
+
+
+
+function anp_theme_setup(){
+    anp_theme_support();
+    anp_images_sizes();
+    anp_navigation_menus();
+}
+
+add_action( 'after_setup_theme', 'anp_theme_setup' );
+
+
+
+
+
+
 
 
 /* Register Sidebars (Widget Areas) */
@@ -116,13 +147,7 @@ add_action( 'widgets_init', 'anp_register_sidebars' );
 
 
 
-function anp_theme_setup(){
-    anp_theme_support();
-    anp_images_sizes();
-    anp_navigation_menus();
-}
 
-add_action( 'after_setup_theme', 'anp_theme_setup' );
 
 
 /* -------------------- End Setup Theme --------------------------------- */
@@ -130,7 +155,7 @@ add_action( 'after_setup_theme', 'anp_theme_setup' );
 
 
 
-/* -------------------- WP TITLE Filter ------------------------------ */
+/* -------------------- WP TITLE Filter ------------------------------
 
 function anp_wp_title_filter( $title, $sep ) {
     if ( is_feed() ) {
@@ -158,7 +183,7 @@ function anp_wp_title_filter( $title, $sep ) {
 
 add_filter( 'wp_title', 'anp_wp_title_filter', 10, 2 );
 
-/* -------------------- End WP Title Filter -------------------------- */
+ -------------------- End WP Title Filter -------------------------- */
 
 
 
@@ -205,28 +230,31 @@ add_filter( 'post_thumbnail_html', 'bootstrap_responsive_images', 10 );
 
 
 
-
+/*  
 remove_filter('the_content', 'wptexturize');
 remove_filter('the_content', 'wpautop');
+*/
 
 
 
 
 
-
-if(!function_exists('codeless_image_by_id'))
+if(!function_exists('anp_image_by_id'))
 {
 
 	/**
-	 * codeless_image_by_id()
-	 * 
+	 * anp_image_by_id()
+	 * originally from codeless
+	 *
+	 *
+	 *
 	 * @param mixed $thumbnail_id
 	 * @param mixed $size
 	 * @param string $output
 	 * @param string $data
 	 * @return
 	 */
-	function codeless_image_by_id($thumbnail_id, $size = array('width'=>800,'height'=>800), $output = 'image', $data = "")
+	function anp_image_by_id($thumbnail_id, $size = array('width'=>800,'height'=>800), $output = 'image', $data = "")
 	{	
 		if(!is_numeric($thumbnail_id)) return false;
 

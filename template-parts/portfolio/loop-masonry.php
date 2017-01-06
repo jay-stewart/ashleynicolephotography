@@ -83,7 +83,7 @@ if(have_posts()){
                             <div class="portfolio-item mix w<?php echo esc_attr($masonry_order[$columns][$loop_counter%15]); ?> <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?> <?php echo $style ?>" data-id="<?php echo get_the_ID() ?>">
                                         <div class="he-wrap tpl2">
                                         <a href="<?php echo $link ?>"></a>
-                                        <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
+                                        <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
                                    
                                        <div class="overlay he-view">
                                             <div class="bg a0" data-animate="fadeIn">
@@ -104,7 +104,7 @@ if(have_posts()){
               <div class="portfolio-item mix w<?php echo esc_attr($masonry_order[$columns][$loop_counter%15]); ?> <?php echo esc_attr($sort_classes) ?> <?php echo $extra_class ?> <?php echo $style ?>" data-id="<?php echo get_the_ID() ?>">
                                         <div class="">
                                             
-                                            <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
+                                            <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
                                            
                                           
                                            <div class="project">
@@ -126,12 +126,12 @@ if(have_posts()){
                  <div class="portfolio-item mix  w<?php echo esc_attr($masonry_order[$columns][$loop_counter%15]); ?> <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?> <?php echo $style ?>" data-id="<?php echo get_the_ID() ?>">
                     <div class="he-wrap tpl2">
                                         
-                        <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
+                        <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'port3', 'url')) ?>" alt="">
                                      
                         <div class="overlay he-view">
                             <div class="bg a0" data-animate="fadeIn">
                                 <div class="center-bar v1">
-                                    <a href="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), array("width"=> 1200, "height" => 1200), "url")) ?>" class="link a2 lightbox-gallery lightbox" data-animate="fadeInRight"><i class="moon-search-3"></i></a></a>
+                                    <a href="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), array("width"=> 1200, "height" => 1200), "url")) ?>" class="link a2 lightbox-gallery lightbox" data-animate="fadeInRight"><i class="moon-search-3"></i></a></a>
                                     <a href="<?php echo $link ?>" class="link a1" data-animate="fadeInLeft"><i class="moon-link-4"></i></a></a>
                                 </div>
                              </div> 
@@ -151,7 +151,7 @@ if(have_posts()){
                 <div class="portfolio-item mix   w<?php echo esc_attr($masonry_order[$columns][$loop_counter%15]); ?>  <?php echo esc_attr($sort_classes) ?> <?php echo esc_attr($extra_class) ?>  <?php echo esc_attr($style) ?>" data-id="<?php echo get_the_ID() ?>">
                     <div class="overlay">
                         <div class="bar"></div>
-                        <img src="<?php echo esc_url(codeless_image_by_id(get_post_thumbnail_id(), 'staff_full', 'url')) ?>" alt="">
+                        <img src="<?php echo esc_url(anp_image_by_id(get_post_thumbnail_id(), 'staff_full', 'url')) ?>" alt="">
                         <span>
                             <a href="<?php echo $link ?>" class="btn-bt <?php echo $cl_redata['overall_button_style'][0] ?>"><?php _e('View', 'codeless') ?></a>
                         </span>

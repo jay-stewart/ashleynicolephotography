@@ -32,7 +32,7 @@ do_action('codeless_excecute_query_var_action','loop-single_portfolio_bottom');
             <div class="media">
                 <?php if(!empty($cl_redata['single_portfolio_gallery'])): foreach($cl_redata['single_portfolio_gallery'] as $slide): ?>
 
-                    <img src="<?php echo esc_url(codeless_image_by_id($slide['attachment_id'], '', 'url'))  ?>" alt="">
+                    <img src="<?php echo esc_url(anp_image_by_id($slide['attachment_id'], '', 'url'))  ?>" alt="">
 
                 <?php endforeach; ?>
                 <?php endif; ?>
