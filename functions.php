@@ -308,13 +308,20 @@ require get_template_directory() . '/inc/customizer.php';
 
 
 
+/**
+ * Custom Metaboxes (requires Plugin).
+ *
+ */
+require get_template_directory() . '/inc/metaboxes.php';
+
+
+
 
 /**
  * Portfolio post type.
  *
  */
 require get_template_directory() . '/inc/portfolio-post-type.php';
-
 
 
 /**
@@ -324,11 +331,16 @@ require get_template_directory() . '/inc/portfolio-post-type.php';
 require get_template_directory() . '/inc/testimonial-post-type.php';
 
 
+
 /**
- * Custom Metaboxes (requires Plugin).
+ * Front Page Slider post type.
  *
  */
-require get_template_directory() . '/inc/metaboxes.php';
+require get_template_directory() . '/inc/slider-post-type.php';
+
+
+
+
 
 
 

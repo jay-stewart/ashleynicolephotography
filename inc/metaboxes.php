@@ -36,7 +36,7 @@ function anp_register_meta_boxes( $meta_boxes ) {
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
 		'title'      => esc_html__( 'Select Slider Images', 'anp' ),
 		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
-		'post_types' => array( 'page' ),
+		'post_types' => array( 'slider' ),
 		// Where the meta box appear: normal (default), advanced, side. Optional.
 		'context'    => 'normal',
 		// Order of meta box: high (default), low. Optional.
