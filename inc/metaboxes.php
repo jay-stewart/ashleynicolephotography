@@ -57,5 +57,57 @@ function anp_register_meta_boxes( $meta_boxes ) {
 
 		),
 	);
+	
+	
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'testimonial-entry',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => 'Testimonial Entry',
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array( 'anp_testimonial' ),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'high',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		// List of meta fields
+		'fields'     => array(
+		
+			
+			array(
+				'name'             => 'Name(s) *Required',
+				'id'               => $prefix . "testimonial-name",
+				'type'             => 'text',
+			),
+
+			
+			array(
+				'name'             => 'Testimonial *Required',
+				'id'               => $prefix . "testimonial-quote",
+				'type'             => 'textarea',
+			),
+			
+			array(
+				'name'             => 'Type of Work (i.e. Wedding, Newborn, etc.) *Optional',
+				'id'               => $prefix . "testimonial-work",
+				'type'             => 'text',
+			),
+
+		),
+	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	return $meta_boxes;
 }

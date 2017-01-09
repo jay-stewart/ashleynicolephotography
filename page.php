@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 <?php if ( !is_home() && is_front_page ()) : ?>
-	<? 	
-	//	<div id="backstretch">
-	//	</div>
-	?>
+
 		<div id="backstretch">
 		<?php $images = rwmb_meta( 'anp_imgadv' );
 			if ( !empty( $images ) ) {
@@ -31,5 +28,16 @@
             <?php endif; ?>
 
     <?php endif; ?>
+
+<?php if ( !is_home() && is_front_page ()) : ?>
+
+	<section class="testimonials container">
+		<div class="row">
+			<h5 class="textcenter">Some kind words from past clients:</h5>
+			<?php get_template_part('template-parts/content', 'testimonial'); ?>
+		</div>
+	</section>
+	
+<?php endif; ?>	
 
 <?php get_footer(); ?>
