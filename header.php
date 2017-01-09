@@ -36,7 +36,7 @@
 <?php else :?>
     <header id="masthead" class="site-header">
 <?php endif; ?>
-	<div class="container u-full-width">
+	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="site-branding">
 			<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -59,7 +59,7 @@
 </header>
 
 <?php if (!is_home() && is_front_page()) : ?>
-<section id="content" class="site-content front-page u-full-width">
+<section id="content" class="site-content front-page">
     <?php else: ?>
 <section id="content" class="site-content container">
         <?php endif; ?>
