@@ -29,7 +29,7 @@
 
 <body <?php body_class(); ?>>
 
-<div id="page">
+<div class="page">
 
 <?php if ( !is_home() && is_front_page ()) : //needed for full front page slider ?> 
 <header id="masthead" class="site-header overlay">

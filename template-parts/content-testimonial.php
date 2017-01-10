@@ -9,9 +9,9 @@
 
             while (have_posts()) : the_post(); ?>
 
-				<p><? echo rwmb_meta( 'anp_testimonial-quote' ); ?></br>
+				<p class="textcenter"><? echo rwmb_meta( 'anp_testimonial-quote' ); ?></br>
 				~ <?php echo rwmb_meta( 'anp_testimonial-name' ); ?></p>
-				<p><?php echo rwmb_meta( 'anp_testimonial-work' ); ?></p>
+				<p class="textcenter"><?php echo rwmb_meta( 'anp_testimonial-work' ); ?></p>
 				
             <?php endwhile;
         endif;
