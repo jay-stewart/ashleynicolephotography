@@ -41,25 +41,41 @@ function anp_scripts() {
 	wp_enqueue_style( 'font-awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css' );
     
     wp_enqueue_style( 'normalize-css', get_template_directory_uri() . '/css/normalize.css');
+	wp_enqueue_style( 'grid-css', get_template_directory_uri() . '/css/style-anp-grid.css');
+	wp_enqueue_style( 'basic-css', get_template_directory_uri() . '/css/style-anp-basic.css');
+	wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/css/style-anp-theme.css');
+	wp_enqueue_style( 'responsive-css', get_template_directory_uri() . '/css/style-anp-responsive.css');
+	
+	wp_enqueue_style( 'unslider-css', get_template_directory_uri() . '/css/unslider.css');
 
-	wp_enqueue_style( 'skeleton-css', get_template_directory_uri() . '/css/skeleton.css');
 	
-	wp_enqueue_style( 'wordpress-styles-css', get_template_directory_uri() . '/css/wordpress-styles.css');
 	
-	wp_enqueue_style( 'all-styles-css', get_template_directory_uri() . '/css/all-style.css');
-    
+	
+	
+	
+	// wp_enqueue_style( 'skeleton-css', get_template_directory_uri() . '/css/skeleton.css');
+	// wp_enqueue_style( 'wordpress-styles-css', get_template_directory_uri() . '/css/wordpress-styles.css');
+	// wp_enqueue_style( 'all-styles-css', get_template_directory_uri() . '/css/all-style.css');
+	
+	
 	wp_enqueue_script( 'anp-script', get_template_directory_uri() . '/js/main.js', array('jquery'), 1, true);
 	
+	wp_enqueue_script( 'unslider-js', get_template_directory_uri() . '/js/unslider-min.js', array('jquery'), 1, true);
+	
+	wp_enqueue_script( 'backstretch-js', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), 1, true );
 	/* localize script outputs variable to html as <script> */
- 	wp_localize_script( 'anp-script', 'php_vars', array( 	get_theme_mod ('anp_slider_one_image'),
+ 	wp_localize_script	( 'backstretch-js', 'php_vars', array( 	get_theme_mod ('anp_slider_one_image'),
 															get_theme_mod ('anp_slider_two_image'),
 															get_theme_mod ('anp_slider_three_image'),
 															get_theme_mod ('anp_slider_four_image'),
 															get_theme_mod ('anp_slider_five_image'), )
-							);
+						);
 							
-							
-	wp_enqueue_script( 'backstretch-js', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), 1, true );
+	wp_enqueue_script( 'modernizr-js', get_template_directory_uri() . '/js/modernizr-2.8.3.min.js', array('jquery'), 1, true );
+	
+	wp_enqueue_script( 'menu-toggle-js', get_template_directory_uri() . '/js/menu-toggle.js', array('jquery'), 1, true );
+									
+
 
 }
 add_action( 'wp_enqueue_scripts', 'anp_scripts' );
@@ -74,6 +90,11 @@ function anp_theme_support(){
 	
     add_theme_support( 'post-thumbnails' );
 	
+	// add_theme_support( 'custom-header' );
+	
+	add_theme_support( 'custom-logo' );
+
+
 	/*  This feature adds RSS feed links to HTML <head>.
 		https://codex.wordpress.org/Automatic_Feed_Links	
     add_theme_support( 'automatic-feed-links' );
@@ -98,7 +119,7 @@ function anp_images_sizes(){
 
 function anp_navigation_menus(){
 	
-	register_nav_menu( 'main-nav', 'Main Navigation' ); 
+	register_nav_menu( 'top-navbar', 'Top Navbar' ); 
 }
 
 
@@ -310,12 +331,6 @@ require get_template_directory() . '/inc/customizer.php';
 
 
 
-/**
- * Custom Metaboxes (requires Plugin).
- *
- */
-require get_template_directory() . '/inc/metaboxes.php';
-
 
 
 
@@ -335,14 +350,34 @@ require get_template_directory() . '/inc/testimonial-post-type.php';
 
 
 /**
+ * Front Page Panel post type.
+ *
+*/
+require get_template_directory() . '/inc/frontpagepanel-post-type.php';
+ 
+
+
+/**
  * Front Page Slider post type.
  *
- */
+ 
 require get_template_directory() . '/inc/slider-post-type.php';
+*/
+
+
+/**
+ * Template Functions.
+ *
+ */
+require get_template_directory() . '/inc/template-functions.php';
 
 
 
-
+/**
+ * Custom Metaboxes (requires Plugin).
+ *
+ */
+require get_template_directory() . '/inc/metaboxes.php';
 
 
 

@@ -36,7 +36,7 @@ function testimonial_pt_register() {
 		'label'                 => 'Testimonials',
 		'description'           => 'Testimonials from past clients',
 		'labels'                => $labels,
-		'supports'              => array(''),
+		'supports'              => array('title'),
 		'hierarchical'          => false,
 		'public'                => false,
 		'show_ui'               => true,

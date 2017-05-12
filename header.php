@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js no-svg">
 
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -21,45 +21,57 @@
 <!-- bloginfo('description') simply puts the side description into the tag, probably not enough -->
 <meta name="description" content="<?php bloginfo('description'); ?>" />
 
-<link rel="icon" href="http://www.ashleynicolephotography.ca/wp-content/uploads/2016/02/favicon.ico" type="image/x-icon">
-
 <?php wp_head(); ?> 
 
 </head>
 
 <body <?php body_class(); ?>>
 
-<div id="page">
+	<div id="page" class="site">
 
-<?php if ( !is_home() && is_front_page ()) : //needed for full front page slider ?> 
-<header id="masthead" class="site-header overlay">
-<?php else :?>
-    <header id="masthead" class="site-header">
-<?php endif; ?>
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="site-branding">
-			<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php if (get_theme_mod( 'anp_logo_image' )) : ?>
-						<img src="<?php echo( get_theme_mod( 'anp_logo_image') ); ?>"/>
-					<?php else : ?>
-						<h1><?php bloginfo('name'); ?></h1>
-						<h2><?php bloginfo('description'); ?><h2>
-				<?php endif; ?>
-			</a>
-			<button type="button" class="menu-toggle"><i class="fa fa-bars"></i>Menu</button>
-		</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-						
-		<nav id="site-navigation" class="main-navigation toggled">
-			<?php wp_nav_menu( array( 	'theme_location' => 'main-nav',
-										'container' => false, ) ); ?>
-		</nav><!-- /#site-navigation -->
-	</div><!-- /.container -->
-</header>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-<?php if (!is_home() && is_front_page()) : ?>
-<section id="content" class="site-content front-page">
-    <?php else: ?>
-<section id="content" class="site-content container">
-        <?php endif; ?>
+			<header id="masthead" class="site-header">
+				<div class="top-navbar">
+					<div class="site-branding">
+						<?php the_custom_logo(); ?>
+
+						<button class="menu-toggle">
+							<svg class="icon icon-bars" aria-hidden="true" role="img"> <use href="#icon-bars" xlink:href="#icon-bars"></use></svg>
+							<svg class="icon icon-close" aria-hidden="true" role="img"> <use href="#icon-close" xlink:href="#icon-close"></use></svg>
+						</button>
+					</div><!-- .site-branding -->
+					<?php if ( has_nav_menu( 'top-navbar' ) ) : ?>
+						<nav id="site-navigation" class="main-navigation">
+							<?php wp_nav_menu( array(
+								'theme_location' => 'top-navbar',
+								'menu_class'	 => 'menu',
+								'menu_id'        => 'top-menu',
+								'container'      => 'div',
+								'container_class'=> 'site-navigation'
+							) ); ?>
+						</nav><!-- /#site-navigation -->
+					<?php endif; ?>
+				</div><!-- .top-navbar -->
+			</header>
+
+			
+			<?php // If is front page, which is a "page", and has a featured image. ?>
+			
+			<?php if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) && has_post_thumbnail () ) { ?>
+				<div class="custom-header">
+					<div id="backstretch" class="custom-header-image">
+						<?php // the_post_thumbnail (); ?>
+						<?php /* <img src="<?php echo get_theme_mod( 'anp_slider_one_image'); ?>"> */ ?>
+					</div>
+					<div class="menu-scroll-down-container">
+						<a href="#content" class="menu-scroll-down"><span class="screen-reader-text">Scroll down to content</span>
+							<svg class="icon arrow-down" aria-hidden="true" role="img"> <use href="#arrow-down" xlink:href="#arrow-down"></use></svg>
+						</a>
+					</div>
+				</div><!-- .custom-header -->
+			
+			<?php } ?>
+
+			<div class="site-content-contain">
+				<div id="content" class="site-content">

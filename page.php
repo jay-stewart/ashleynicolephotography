@@ -1,5 +1,7 @@
 <?php get_header(); ?>
-<?php if ( !is_home() && is_front_page ()) : ?>
+
+
+<?php /* if ( !is_home() && is_front_page ()) : ?>
 
 		<div id="backstretch">
 		<?php $images = rwmb_meta( 'anp_imgadv' );
@@ -11,7 +13,8 @@
 
 		?>
 		</div>
-    <?php else: ?>
+    <?php else: */ ?>
+	
 
             <?php if ( have_posts() ) : ?>
 
@@ -27,7 +30,7 @@
                 </section>
             <?php endif; ?>
 
-    <?php endif; ?>
+    <?php //endif; ?>
 
 <?php if ( !is_home() && is_front_page ()) : ?>
 
@@ -38,6 +41,6 @@
 		</div>
 	</section>
 	
-<?php endif; ?>	
+<?php  endif; ?>	
 
 <?php get_footer(); ?>

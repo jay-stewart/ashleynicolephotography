@@ -4,7 +4,7 @@ function portfolio_register() {
 
 	$labels = array(
 
-		'name' => 'Portfolio Items', 'post type general name',
+		'name' => 'Portfolios', 'post type general name',
 
 		'singular_name' => 'Portfolio Entry', 'post type singular name',
 
@@ -45,7 +45,7 @@ function portfolio_register() {
 
 		'show_in_nav_menus'=> false,
 
-		'supports' => array('title','thumbnail','excerpt','editor','comments','page-attributes')
+		'supports' => array('title','thumbnail')
 
 	);
 

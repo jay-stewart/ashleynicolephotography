@@ -4,7 +4,7 @@ function anp_customize_register($wp_customize) {
 
     $wp_customize->add_panel('anp_customizations', array(
 
-        'priority'       => 65,
+        'priority'       => 10,
 
         'capability'     => 'edit_theme_options',
 
@@ -203,40 +203,6 @@ function anp_customize_register($wp_customize) {
 
     )));
 
-
-
-
-	/* Logo */
-	
-    $wp_customize->add_section('anp_logo_section', array(
-
-        'priority' => 35,
-
-        'title' => 'Site Logo',
-        
-        'panel' => 'anp_customizations',
-
-    ));
-	
-	$wp_customize->add_setting('anp_logo_image', array(
-
-        'capability' => 'edit_theme_options',
-
-        'sanitize_callback' => 'esc_url_raw',
-
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'anp_logo_image', array(
-
-        'label' => 'Site Logo Image',
-
-        'section' => 'anp_logo_section',
-
-        'priority' => 5,
-
-        'settings' => 'anp_logo_image',
-
-    )));
 
 
     

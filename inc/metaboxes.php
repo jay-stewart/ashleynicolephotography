@@ -30,13 +30,14 @@ function anp_register_meta_boxes( $meta_boxes ) {
 	// Better has an underscore as last sign
 	$prefix = 'anp_';
 	// 1st meta box
+	
 	$meta_boxes[] = array(
 		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
-		'id'         => 'slider-images',
+		'id'         => 'portfolio-images',
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title'      => esc_html__( 'Select Slider Images', 'anp' ),
+		'title'      => esc_html__( 'Select Portfolio Images', 'anp' ),
 		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
-		'post_types' => array( 'slider' ),
+		'post_types' => array( 'portfolio' ),
 		// Where the meta box appear: normal (default), advanced, side. Optional.
 		'context'    => 'normal',
 		// Order of meta box: high (default), low. Optional.
@@ -77,20 +78,31 @@ function anp_register_meta_boxes( $meta_boxes ) {
 		
 			
 			array(
-				'name'             => 'Name(s) *Required',
+				'name'             => 'Name(s)',
 				'id'               => $prefix . "testimonial-name",
 				'type'             => 'text',
 			),
 
+			array(
+				'name'             => 'Date',
+				'id'               => $prefix . "testimonial-date",
+				'type'             => 'date',
+			),
 			
 			array(
-				'name'             => 'Testimonial *Required',
-				'id'               => $prefix . "testimonial-quote",
+				'name'             => 'Quick Quote',
+				'id'               => $prefix . "testimonial-tagline",
 				'type'             => 'textarea',
 			),
 			
 			array(
-				'name'             => 'Type of Work (i.e. Wedding, Newborn, etc.) *Optional',
+				'name'             => 'Full Quote',
+				'id'               => $prefix . "testimonial-content",
+				'type'             => 'textarea',
+			),
+			
+			array(
+				'name'             => 'Type of Work',
 				'id'               => $prefix . "testimonial-work",
 				'type'             => 'text',
 			),

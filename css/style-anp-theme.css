@@ -1,0 +1,1822 @@
+/*--------------------------------------------------------------
+
+Colors:
+
+Gold Accent: #DBC76D
+Blue Accent: #3F5C6B
+
+
+	if ( is_front_page() ) $classes[] = 'home'; 
+	if ( is_home() ) $classes[] = 'blog'; 
+
+in my case, 'blog' would only show up on the Blog page, and 'home' would show up on the "home" page.
+	
+basically, home and blog would only show up together if home page was also set to blog page.
+
+
+start at 11.0 Layout due to basic.css
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+3.0 Clearings
+
+* Add to/remove from this list as necessary.
+
+--------------------------------------------------------------*/
+
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after,
+.footer-social-links:before,
+.footer-social-links:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after,
+.footer-social-links:after {
+	clear: both;
+}
+
+
+
+/* Icon Base Styles. Includes SVG and FontAwesome
+--------------------------------------------------------------*/
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	width: 1em;
+}
+
+
+/* 11.0 Layout
+--------------------------------------------------------------*/
+
+#page {
+	position: relative;
+	word-wrap: break-word;
+}
+
+
+.wrap {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.wrap:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+
+
+
+
+
+/* 12.0 Header
+--------------------------------------------------------------*/
+
+.site-header {
+	position: relative;
+}
+
+.top-navbar {
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	background-color: #fff;
+	color: #222;
+}
+
+.custom-header {
+	position: relative;
+	height: 300px;
+	height: 70vh;
+	width: 100%;
+}
+
+.custom-header-image {
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.custom-header-image img {
+	position: fixed;
+	height: auto;
+	left: 50%;
+	max-width: 1000%;
+	min-height: 100%;
+	min-width: 100%;
+	min-width: 100vw; /* vw prevents 1px gap on left that 100% has */
+	width: auto;
+	top: 50%;
+	padding-bottom: 1px; /* Prevent header from extending beyond the footer */
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+/* For browsers that support 'object-fit' */
+@supports ( object-fit: cover ) {
+	.custom-header-image img {
+		height: 100%;
+		left: 0;
+		-o-object-fit: cover;
+		object-fit: cover;
+		top: 0;
+		-ms-transform: none;
+		-moz-transform: none;
+		-webkit-transform: none;
+		transform: none;
+		width: 100%;
+	}
+}
+
+
+/* Site branding */
+.site-branding {
+	padding: .3125em 0;
+	position: relative;
+}
+
+.custom-logo-link {
+	display: block;
+    width: 100%;
+	text-decoration: none;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+    margin-bottom: 1em;
+}
+
+.custom-logo-link:hover {
+	opacity: 0.6;
+}
+
+.custom-logo-link img {
+	display: block;
+	max-height: 70px;
+	margin: 0 auto;
+	width: auto;
+}
+
+
+
+/* Menu toggle */
+
+.menu-toggle {
+	font-size: 16px;
+	font-size: 1rem;
+	background-color: transparent;
+	border: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #222;
+	display: none;
+	line-height: 1;
+	margin: .25em auto;
+	padding: 1em;
+	text-shadow: none;
+}
+
+/* Display the menu toggle when JavaScript is available. */
+.js .menu-toggle {
+	display: block;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+	color: inherit;
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/* For hamburger and close icon. These styles not required if no text is used with it */
+.menu-toggle .icon {
+
+}
+
+.menu-toggle.toggled-on  .icon-bars,
+.menu-toggle .icon-close {
+	display: none;
+}
+
+.menu-toggle.toggled-on  .icon-close {
+	display: inline-block;
+}
+
+
+
+/* 13.0 Navigation
+--------------------------------------------------------------*/
+
+.main-navigation {
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	clear: both;
+	display: block;
+	z-index: 1;
+	
+	-webkit-box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
+	   -moz-box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
+	        box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
+}
+
+.main-navigation a {
+	color: #222;
+	font-weight: 500;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+	display: block;
+	padding: 1em 2em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+
+.main-navigation a:hover,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a {
+	color: #DBC76D;
+
+}
+
+/* all ul's within .main-navigation. if we had submenus, it would include these. */
+.main-navigation ul {
+    background-color: #fff;
+	list-style: none;
+	margin: 0;
+	padding: 0 1em;
+	text-align: center;
+}
+
+/* Hide the menu(s) on small screens when JavaScript is available. */
+.js .main-navigation ul {
+	display: none;
+}
+
+.js .main-navigation.toggled-on ul {
+	display: block;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+
+
+
+/* Scroll down arrow (only on front page on large screens)*/
+.custom-header .menu-scroll-down-container {
+	display: none;
+}
+
+
+
+
+/* Social navigation (in header). Also found in footer, but styled differently */
+
+.top-navbar .social-navigation {
+}
+
+.top-navbar .social-navigation ul {
+	list-style: none;
+	margin: 0 0 1.5em;
+	padding: 0;
+	text-align: center;
+	
+}
+
+.top-navbar .social-navigation ul li {
+	display: inline-block;
+	border-style: none;
+	margin: .75em;
+}
+
+.top-navbar .social-navigation ul li a {
+	padding: 0;
+	background-color: #777;
+	color: #fff;
+	display: block;
+ 	height: 2.5em;
+	width: 2.5em;
+	line-height: 2.5em;
+	-webkit-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+}
+
+
+.top-navbar .social-navigation ul li a:hover,
+.top-navbar .social-navigation ul li a:focus {
+	color: #fff;
+	background-color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+14.0 Front Page
+--------------------------------------------------------------*/
+.anp-front-page .site-content {
+	padding: 0;
+}
+
+.anp-panel {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 4em;
+	padding-top: 4em;
+}
+
+.panel-image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	position: relative;
+}
+
+.panel-content {
+	position: relative;
+	padding-top: 0;
+}
+
+.panel-content .entry-header,
+.panel-content .entry-content {
+	margin-bottom: 2em;
+}
+
+.panel-content .entry-footer {
+	margin-top: 0;
+}
+
+.anp-panel.recent-posts {
+	color: #FFF;
+	background-color: #3F5C6B;
+}
+
+.anp-front-page .anp-panel .entry-title {
+	text-transform: uppercase;
+    margin: 0;
+}
+
+
+.anp-front-page .anp-panel .entry-content {
+    text-align: left;
+}
+
+.anp-front-page .anp-panel .entry-content p {
+    text-align: left;
+}
+
+.anp-front-page .anp-panel .entry-content .page-link {
+	text-transform: uppercase;
+	font-weight: 500;
+	margin: 0 auto;
+}
+
+.anp-front-page .anp-panel .entry-content .page-link i {
+	margin-left: .75em;
+}
+
+.anp-front-page .anp-panel .entry-content h1:first-child,
+.anp-front-page .anp-panel .entry-content h2:first-child,
+.anp-front-page .anp-panel .entry-content h3:first-child,
+.anp-front-page .anp-panel .entry-content h4:first-child,
+.anp-front-page .anp-panel .entry-content h5:first-child,
+.anp-front-page .anp-panel .entry-content h6:first-child {
+	color: #3F5C6B;
+	font-weight: 600;
+}
+
+
+
+.anp-front-page .anp-panel.recent-posts .entry-content h1:first-child,
+.anp-front-page .anp-panel.recent-posts .entry-content h2:first-child,
+.anp-front-page .anp-panel.recent-posts .entry-content h3:first-child,
+.anp-front-page .anp-panel.recent-posts .entry-content h4:first-child,
+.anp-front-page .anp-panel.recent-posts .entry-content h5:first-child,
+.anp-front-page .anp-panel.recent-posts .entry-content h6:first-child {
+	color: #fff;
+    text-align: center;
+}
+
+.anp-front-page .anp-panel.recent-posts .recent-post-thumbnail {
+    padding: 2em;
+}
+
+/* Front Page - Recent Posts */
+.anp-front-page .anp-panel.recent-posts .entry-footer,
+.anp-front-page .anp-panel.contact .entry-footer{
+	text-align: center;
+}
+
+.anp-front-page .anp-panel.has-background-image {
+    color: #000;
+}
+
+.anp-front-page .anp-panel.has-background-image .entry-content {
+    background-color: rgba(255,255,255,0.9);
+	padding: 2.5em;
+}
+
+
+/* About Panel
+-------------------------*/
+
+.anp-panel.about ul {
+	list-style: none;
+}
+
+.anp-panel.about ul li {
+	margin-bottom: 1.5em;
+}
+
+.anp-panel.about ul li .icon {
+	margin-right: 1em;
+	height: 2em;
+	width: 2em;
+}
+
+
+
+
+/*--------------------------------------------------------------
+15.0 Regular Content
+--------------------------------------------------------------*/
+
+.site-content-contain {
+	background-color: #fff;
+	position: relative;
+}
+
+.site-content {
+	padding: 3em 0 0;
+}
+
+
+/*--------------------------------------------------------------
+15.1 Posts
+--------------------------------------------------------------*/
+
+/* Post Landing Page */
+
+/* Post (Excerpt) Layout
+--------------------------------------*/
+
+body.blog article {
+	padding: 0 1em;
+	margin-bottom: 5em;
+}
+
+body.blog article:last-child {
+	margin-bottom: 0;
+}
+
+.post-thumbnail,
+.entry-header,
+.entry-content,
+.entry-footer {
+	margin-bottom: 1.5em;
+}
+
+
+
+.entry-content .btn-bt{
+  float:right;
+}
+
+.entry-content:before,
+.entry-content:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.entry-content:after {
+	clear: both;
+}
+
+
+.page-title,
+.page .panel-content .entry-title,
+body.page:not(.anp-front-page) .entry-title {
+	color: #222;
+	font-size: 20px;
+	font-size: 1.25rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.entry-header .entry-title {
+	margin-bottom: 0.25em;
+}
+
+.entry-title a {
+	color: #333;
+	text-decoration: none;
+	margin-left: -2px;
+}
+
+.entry-title:not(:first-child) {
+	padding-top: 0;
+}
+
+.entry-meta {
+	color: #767676;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	padding-bottom: 0.25em;
+	text-transform: uppercase;
+}
+
+.entry-meta a {
+	color: #767676;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.pagination,
+.comments-pagination {
+	border-top: 1px solid #eee;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	padding: 2em 0 3em;
+	text-align: center;
+}
+
+.pagination .icon,
+.comments-pagination .icon {
+	width: 0.666666666em;
+	height: 0.666666666em;
+}
+
+.comments-pagination {
+	border: 0;
+}
+
+.page-numbers {
+	display: none;
+	padding: 0.5em 0.75em;
+}
+
+.page-numbers.current {
+	color: #767676;
+	display: inline-block;
+}
+
+.page-numbers.current .screen-reader-text {
+	clip: auto;
+	height: auto;
+	overflow: auto;
+	position: relative !important;
+	width: auto;
+}
+
+.prev.page-numbers,
+.next.page-numbers {
+	background-color: #ddd;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 24px;
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 0.25em 0.5em 0.4em;
+}
+
+.prev.page-numbers,
+.next.page-numbers {
+	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.prev.page-numbers:focus,
+.prev.page-numbers:hover,
+.next.page-numbers:focus,
+.next.page-numbers:hover {
+	background-color: #767676;
+	color: #fff;
+}
+
+.prev.page-numbers {
+	float: left;
+}
+
+.next.page-numbers {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Aligned blockquotes */
+
+.entry-content blockquote.alignleft,
+.entry-content blockquote.alignright {
+	color: #666;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	width: 48%;
+}
+
+/* Blog landing, search, archives */
+
+.blog .site-main article,
+.archive .site-main article,
+.search .site-main article {
+	padding-bottom: 2em;
+}
+
+body:not(.anp-front-page) .entry-header {
+	padding: 1em 0;
+}
+
+body:not(.anp-front-page) .entry-header,
+body:not(.anp-front-page) .entry-content,
+body:not(.anp-front-page) #comments {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body:not(.anp-front-page) .entry-header {
+	padding-top: 0;
+}
+
+.blog .entry-meta a.post-edit-link,
+.archive .entry-meta a.post-edit-link,
+.search .entry-meta a.post-edit-link {
+	color: #222;
+	display: inline-block;
+	margin-left: 1em;
+	white-space: nowrap;
+}
+
+.search .page .entry-meta a.post-edit-link {
+	margin-left: 0;
+	white-space: nowrap;
+}
+
+.taxonomy-description {
+	color: #666;
+	font-size: 13px;
+	font-size: 0.8125rem;
+}
+
+/* More tag */
+
+.entry-content .more-link:before {
+	content: "";
+	display: block;
+	margin-top: 1.5em;
+}
+
+/* Single Post */
+
+.single-post:not(.has-sidebar) #primary,
+.page.page-one-column:not(.anp-front-page) #primary,
+.archive.page-one-column:not(.has-sidebar) .page-header,
+.archive.page-one-column:not(.has-sidebar) #primary {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 740px;
+}
+
+.single-featured-image-header {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.single-featured-image-header img {
+	display: block;
+	margin: auto;
+}
+
+.page-links {
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	padding: 2em 0 3em;
+}
+
+.page-links .page-number {
+	color: #767676;
+	display: inline-block;
+	padding: 0.5em 1em;
+}
+
+.page-links a {
+	display: inline-block;
+}
+
+.page-links a .page-number {
+	color: #222;
+}
+
+/* Entry footer */
+
+.entry-footer {
+	margin-top: 2em;
+	padding: 2em 0;
+}
+
+.entry-footer .cat-links,
+.entry-footer .tags-links {
+	display: block;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	padding-left: 2.5em;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.entry-footer .cat-links + .tags-links {
+	margin-top: 1em;
+}
+
+.entry-footer .cat-links a,
+.entry-footer .tags-links a {
+	color: #333;
+}
+
+.entry-footer .cat-links .icon,
+.entry-footer .tags-links .icon {
+	color: #767676;
+	left: 0;
+	margin-right: 0.5em;
+	position: absolute;
+	top: 2px;
+}
+
+.entry-footer .edit-link {
+	display: inline-block;
+}
+
+.entry-footer .edit-link a.post-edit-link {
+	background-color: #222;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	margin-top: 2em;
+	padding: 0.7em 2em;
+	-webkit-transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out;
+	white-space: nowrap;
+}
+
+.entry-footer .edit-link a.post-edit-link:hover,
+.entry-footer .edit-link a.post-edit-link:focus {
+	background-color: #767676;
+}
+
+/* Post Formats */
+
+.blog .format-status .entry-title,
+.archive .format-status .entry-title,
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+.format-quote blockquote {
+	color: #333;
+	font-size: 20px;
+	font-size: 1.25rem;
+	font-weight: 300;
+	overflow: visible;
+	position: relative;
+}
+
+.format-quote blockquote .icon {
+	display: block;
+	height: 20px;
+	left: -1.25em;
+	position: absolute;
+	top: 0.4em;
+	-webkit-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	width: 20px;
+}
+
+/* Post Navigation */
+
+.post-navigation {
+	font-weight: 800;
+	margin: 3em 0;
+}
+
+.post-navigation .nav-links {
+	padding: 1em 0;
+}
+
+.nav-subtitle {
+	background: transparent;
+	color: #767676;
+	display: block;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	letter-spacing: 0.1818em;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+
+.nav-title {
+	color: #333;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+.post-navigation .nav-next {
+	margin-top: 1.5em;
+}
+
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper {
+	margin-right: 0.5em;
+}
+
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper {
+	margin-left: 0.5em;
+}
+
+/*--------------------------------------------------------------
+15.2 Pages
+--------------------------------------------------------------*/
+
+.page-header {
+	padding-bottom: 2em;
+
+}
+
+.page-title {
+	color: #222;
+	font-size: 26px;
+	font-size: 1.625rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.page-subtitle{
+    
+}
+
+
+.page .entry-header .edit-link {
+	font-size: 14px;
+	font-size: 0.875rem;
+}
+
+.search .page .entry-header .edit-link {
+	font-size: 11px;
+	font-size: 0.6875rem;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.page:not(.home) #content {
+	padding-bottom: 1.5em;
+}
+
+/* 404 page */
+
+.error404 .page-content {
+	padding-bottom: 4em;
+}
+
+.error404 .page-content .search-form,
+.search .page-content .search-form {
+	margin-bottom: 3em;
+}
+
+
+
+
+/*--------------------------------------------------------------
+16.0 Footer
+--------------------------------------------------------------*/
+.site-info{
+	padding: 2em 0;
+	background-color: #eee;
+	text-align: center;
+	font-size: .75em;
+}
+
+
+/*--------------------------------------------------------------
+17.0 Widgets
+--------------------------------------------------------------*/
+
+#secondary {
+	padding: 1em 0 2em;
+}
+
+.widget {
+	padding-bottom: 3em;
+}
+
+h2.widget-title {
+	color: #222;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	margin-bottom: 1.5em;
+	text-transform: uppercase;
+}
+
+.widget-title a {
+	color: inherit;
+}
+
+/* widget forms */
+
+.widget select {
+	max-width: 100%;
+}
+
+
+/* widget lists */
+
+.widget ul {
+	list-style: none;
+	margin: 0;
+}
+
+.widget ul li {
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	padding: 0.5em 0;
+}
+
+.widget ul li + li {
+	margin-top: -1px;
+}
+
+.widget ul li ul {
+	margin: 0 0 -1px;
+	padding: 0;
+	position: relative;
+}
+
+.widget ul li li {
+	border: 0;
+	padding-left: 24px;
+	padding-left: 1.5rem;
+}
+
+/* Widget lists of links */
+
+.widget_top-posts ul li ul,
+.widget_rss_links ul li ul,
+.widget-grofile ul.grofile-links li ul,
+.widget_pages ul li ul,
+.widget_meta ul li ul {
+	bottom: 0;
+}
+
+.widget_nav_menu ul li li,
+.widget_top-posts ul li,
+.widget_top-posts ul li li,
+.widget_rss_links ul li,
+.widget_rss_links ul li li,
+.widget-grofile ul.grofile-links li,
+.widget-grofile ul.grofile-links li li {
+	padding-bottom: 0.25em;
+	padding-top: 0.25em;
+}
+
+.widget_rss ul li {
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+/* widget markup */
+
+.widget .post-date,
+.widget .rss-date {
+	font-size: 0.81em;
+}
+
+/* Text widget */
+
+.widget_text {
+	word-wrap: break-word;
+}
+
+/* RSS Widget */
+
+.widget_rss .widget-title .rsswidget:first-child {
+	float: right;
+}
+
+.widget_rss .widget-title .rsswidget:first-child:hover {
+	background-color: transparent;
+}
+
+.widget_rss .widget-title .rsswidget:first-child img {
+	display: block;
+}
+
+.widget_rss ul li {
+	padding: 2.125em 0;
+}
+
+.widget_rss ul li:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.widget_rss li .rsswidget {
+	font-size: 22px;
+	font-size: 1.375rem;
+	font-weight: 300;
+	line-height: 1.4;
+}
+
+.widget_rss .rss-date,
+.widget_rss li cite {
+	color: #767676;
+	display: block;
+	font-size: 10px;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	line-height: 1.5;
+	text-transform: uppercase;
+}
+
+.widget_rss .rss-date {
+	margin: 0.5em 0 1.5em;
+	padding: 0;
+}
+
+.widget_rss .rssSummary {
+	margin-bottom: 0.5em;
+}
+
+/* Contact Info Widget */
+
+.widget_contact_info .contact-map {
+	margin-bottom: 0.5em;
+}
+
+/* Gravatar */
+
+.widget-grofile h4 {
+	font-size: 16px;
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+
+/* Recent Comments */
+
+.widget_recent_comments table,
+.widget_recent_comments th,
+.widget_recent_comments td {
+	border: 0;
+}
+
+/* Recent Posts widget */
+
+.widget_recent_entries .post-date {
+	display: block;
+}
+
+/* Search */
+
+.search-form {
+	position: relative;
+}
+
+.search-form .search-submit {
+	bottom: 3px;
+	padding: 0.5em 1em;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+}
+
+.search-form .search-submit .icon {
+	height: 24px;
+	top: -2px;
+	width: 24px;
+}
+
+/* Tag cloud widget */
+
+.tagcloud,
+.widget_tag_cloud,
+.wp_widget_tag_cloud {
+	line-height: 1.5;
+}
+
+.widget .tagcloud a,
+.widget.widget_tag_cloud a,
+.wp_widget_tag_cloud a {
+	border: 1px solid #ddd;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	display: inline-block;
+	float: left;
+	font-size: 14px !important; /* !important to overwrite inline styles */
+	font-size: 0.875rem !important;
+	margin: 4px 4px 0 0 !important;
+	padding: 4px 10px 5px !important;
+	position: relative;
+	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	width: auto;
+	word-wrap: break-word;
+	z-index: 0;
+}
+
+.widget .tagcloud a:hover,
+.widget .tagcloud a:focus,
+.widget.widget_tag_cloud a:hover,
+.widget.widget_tag_cloud a:focus,
+.wp_widget_tag_cloud a:hover,
+.wp_widget_tag_cloud a:focus {
+	border-color: #bbb;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-decoration: none;
+}
+
+/* Calendar widget */
+
+.widget_calendar th,
+.widget_calendar td {
+	text-align: center;
+}
+
+.widget_calendar tfoot td {
+	border: 0;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+18.0 Media
+--------------------------------------------------------------*/
+
+.wp-caption,
+.gallery-caption {
+	color: #666;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	font-style: italic;
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+19.0 ANP Customs
+--------------------------------------------------------------*/
+
+
+
+.separator {
+	display: block;
+	width: 6em;
+	height: 2px;
+	background-color: #DBC76D;
+	clear: both;
+	margin: 0.375em 0;
+}
+
+h1 + .separator {
+    margin-bottom: 2.5em;
+}
+
+
+
+
+
+/* Custom Lists
+-------------------------------------------*/
+
+.anp-list {
+	list-style: none;
+	padding: 1.5em 2.5em;
+}
+
+.anp-list-heading {
+	font-size: 1.25em;
+	font-weight: 600;
+}
+
+.anp-list li {
+
+}
+
+.anp-list li ul {
+
+}
+
+.anp-list li ul li {
+
+}
+
+
+
+
+
+/* Image Overlays
+-----------------------------*/
+
+.post-thumbnail,
+.post-thumbnail a,
+.portfolio-thumbnail,
+.portfolio-thumbnail a {
+	position: relative;
+	display: block;
+}
+
+ .post-thumbnail,
+ .portfolio-thumbnail {
+	position: relative;
+}
+
+img.with-overlay {
+	display: block;
+	width: 100%;
+	backface-visibility: hidden;
+}
+
+.image-overlay-full {
+	background: rgba(255, 255, 255, .4);
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:1;
+	cursor:pointer;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.image-overlay-middle {
+	opacity:1;
+	background: transparent;
+	position:absolute;
+	top:50%;
+	left:50%;
+	
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+
+	cursor:pointer;
+}
+
+.image-overlay-middle i {
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	line-height: 52px;
+	float: left;
+	width: 52px;
+}
+.post-thumbnail:hover .image-overlay-full,
+.post-thumbnail:hover .image-overlay-middle,
+.portfolio-thumbnail:hover .image-overlay-full,
+.portfolio-thumbnail:hover .image-overlay-middle {
+	opacity: 0;
+}
+	
+/* .post-thumbnail:hover img,
+.post-thumbnail:hover img,
+.portfolio-thumbnail:hover img,
+.portfolio-thumbnail:hover img {
+    opacity: 1;
+} */
+
+
+
+/* Entry Header (Includes title and meta)
+-----------------------------------------------*/
+
+.entry-header {
+	padding: 0;
+}
+
+.entry-title {
+    text-transform: uppercase;
+	font-weight: 600;
+	color: #222;
+}
+
+.entry-title:not(:first-child) {
+	padding-top: 0;
+}
+
+.entry-title a {
+
+}
+
+
+
+
+/* Post Meta
+----------------------------------------*/
+.entry-meta {
+	color: #767676;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	padding-bottom: 0.25em;
+	text-transform: uppercase;
+}
+
+.entry-meta a {
+	color: #767676;
+}
+.entry-meta {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+	margin-top: 0px;
+	line-height: 20px;
+	color: #999999;
+	font-size: 12px;
+}
+
+.entry-meta i {
+    font-size: 1.75em;
+	margin-right: .5em;
+}
+
+.entry-meta li {
+	float: left;
+	margin-right: 18px;
+	line-height: inherit;
+}
+
+
+
+
+/* Post Content
+------------------------------------*/
+
+.entry-content p {
+    margin-bottom: 1em;
+}
+
+.entry-content p:last-child {
+	margin-bottom: 0;
+}
+
+.entry-content p a {
+    color: #dbc76d;
+}
+
+
+
+
+
+
+/* Pricing Page
+------------------------------------*/
+.pricing-category {
+	margin-bottom: 3em;
+}
+
+.pricing-category h2 {
+	margin-bottom: 1em;
+}
+.pricing-category p {
+	margin-bottom: 1em;
+
+}
+.pricing-category .post-thumbnail img {
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.large-icon {
+	font-size: 64px;
+	font-size: 4em;
+}
+
+.pricing-block .large-icon {
+    color: #dbc76d;
+}
+.pricing-block article {
+text-align: center;
+padding-bottom: 5em;
+}
+
+
+
+.pricing-block h3 {
+    color: #878787;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.pricing-block .small-text {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.4);
+    letter-spacing: 1.5px;
+	font-size: 11px;
+    font-size: 0.68rem;
+}
+
+.pricing-block .package-details ul li a {
+	display: inline-block;
+	float: none;
+	clear: both;
+}
+
+.pricing-block .price {
+    font-family: "Lato";
+	padding: 15px;
+    color: #000;
+    display: inline-block;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 80px;
+    font-size: 5rem;
+	margin-top: .2em;
+	margin-bottom: .2em;
+}
+
+/* dollar sign */
+.pricing-block .price span {
+	margin-right: .25em;
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    vertical-align: top;
+    font-size: 30px;
+    font-size: 1.87rem;
+}
+
+.pricing-block .package-details aside.small-text {
+    color: #4c4c4c;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.pricing-block ul {
+	list-style: none;
+    color: #5f5f5f;
+    font-weight: 500;
+	margin: 3em 0 0;
+	padding: 0;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-size: 0.68rem;
+}
+
+.pricing-block li {
+    letter-spacing: 0.8px;
+    margin: 2em 0;
+}
+
+.pricing-block li:first-child {
+	margin-top: 2em;
+}
+
+.pricing-block .button {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.services-pricing ul.package-description {
+	text-align: center;
+}
+
+.services-pricing ul.package-description li {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.services-pricing ul.package-description li .icon {
+	font-size: 3.5em;
+}
+
+.wedding-package .package-features {
+	
+}
+
+.wedding-package ul {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: 1px solid #eee;
+}
+
+
+.wedding-package .package-features li {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #eee;
+}
+
+/* Pricing Table Title
+------------------------------------------*/
+.pricing-table-title {
+	color: #dbc76d;
+	font-weight: 100;
+	font-size: 2em;
+	border: none;
+	padding: 0;
+}
+
+/* Pricing Table Price
+------------------------------------------*/
+.pricing-table-price {
+	color: #222;
+	font-size: 3em;
+	font-weight: 300;
+	border: none;
+	padding: 0;
+	background-color: #dbc76d;
+}
+
+/* Pricing Table List Title ("INCLUDES:")
+------------------------------------------*/
+.pricing-table-tagline {
+	font-weight: 700;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+/* 	text-align: left; */
+	border: none;
+}
+
+.pricing-table-list li:last-child {
+	border-bottom: none;
+}
+
+.pricing-table-list .btn-bt{
+	width: 80%;
+	max-width: 20em;
+	float: none;
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.widget-header {
+	margin-bottom: 2em;
+}
+
+
+
+
+
+
+
+
+
+/* Testimonials
+--------------------------------------*/
+
+.testimonial-wrapper {
+	margin: 2em auto;
+	padding: 4em;
+}
+
+
+.testimonial-entry {
+	text-align: left;
+}
+
+.testimonial-tagline {
+	font-weight: 600;
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+.testimonial-content {
+	margin-bottom: 1.5em;
+}
+
+.testimonial-author,
+.testimonial-work,
+.testimonial-date {
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer
+--------------------------------------*/
+
+.instagram-widget {
+	background-color: #eee;
+	padding: 3em 0;
+	text-align: center;
+}
+
+.instagram-widget header h5 {
+	color: #222;
+	text-transform: uppercase;
+	letter-spacing: .3em;
+}
+
+.instagram-widget header a {
+	color: #555;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.instagram-widget header a:hover {
+	color: #dbc76d;;
+}
+
+.instagram-widget .icon {
+	margin-right: .75em;
+}
+
+.instagram-widget ul {
+	margin: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.instagram-widget li {
+	width: 100%;
+	padding: 1em 0;
+}
+
+.instagram-widget li img{
+	display: block;
+	margin: 0 auto;
+	max-width: 200px;
+}
+
+
+.footer-social-links {
+	padding: 2em 0;
+	background-color: #fff;
+}
+
+.footer-social-links ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-align: center
+
+}
+
+.footer-social-links li {
+	width: 100%;
+	font-size: .875em;
+	padding: 1em;
+	display: inline-block;
+}
+
+.footer-social-links a {
+	text-transform: uppercase;
+	letter-spacing: .3em;
+}
+
+.instagram-widget .icon,
+.footer-social-links .icon {
+	margin-right: 1em;
+}
