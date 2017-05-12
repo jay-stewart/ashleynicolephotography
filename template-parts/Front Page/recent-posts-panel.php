@@ -5,7 +5,7 @@
 	
 
 
-<article id="post-6" class="anp-panel recent-posts">
+<article id="recent-posts" class="anp-panel">
 	<div class="panel-content container">
 		<header class="entry-header">
 			<h2 class="entry-title">My Latest Work</h2>
@@ -28,4 +28,4 @@
 			<a class="page-link button" href="http://localhost/blog/">View All Posts</a>
 		</div><!-- .entry-footer -->
 	</div><!-- .panel-content container -->
-</article>
+</article><!-- #recent-posts -->
