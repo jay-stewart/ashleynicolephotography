@@ -15,6 +15,10 @@ basically, home and blog would only show up together if home page was also set t
 
 
 start at 11.0 Layout due to basic.css
+
+font-family: mr-de-haviland, cursive;
+font-family: tangerine, sans-serif;
+
 --------------------------------------------------------------*/
 
 
@@ -57,7 +61,7 @@ start at 11.0 Layout due to basic.css
 
 
 
-/* Icon Base Styles. Includes SVG and FontAwesome
+/* Icon Base Styles. Includes SVG and FontAwesome. fill: doesn't work for FontAwesome
 --------------------------------------------------------------*/
 .icon {
 	display: inline-block;
@@ -74,23 +78,6 @@ start at 11.0 Layout due to basic.css
 	position: relative;
 	word-wrap: break-word;
 }
-
-
-.wrap {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 100%;
-	padding-left: 1em;
-	padding-right: 1em;
-}
-
-.wrap:after {
-	clear: both;
-	content: "";
-	display: block;
-}
-
-
 
 
 
@@ -352,17 +339,37 @@ start at 11.0 Layout due to basic.css
 
 
 
+
+/*--------------------------------------------------------------
+15.0 Regular Content
+--------------------------------------------------------------*/
+
+.site-content-contain {
+	background-color: #fff;
+	position: relative;
+}
+
+.site-content {
+	padding: 3em 0 0;
+}
+
+
+
+
+
+
+
 /*--------------------------------------------------------------
 14.0 Front Page
 --------------------------------------------------------------*/
 .anp-front-page .site-content {
-	padding: 0;
+	padding-top: 0;
 }
 
 .anp-panel {
 	overflow: hidden;
 	position: relative;
-	margin-bottom: 4em;
+	padding-bottom: 4em;
 	padding-top: 4em;
 }
 
@@ -374,18 +381,36 @@ start at 11.0 Layout due to basic.css
 	position: relative;
 }
 
-.panel-content {
-	position: relative;
-	padding-top: 0;
-}
-
-.panel-content .entry-header,
-.panel-content .entry-content {
+.anp-panel .entry-header {
 	margin-bottom: 2em;
 }
 
-.panel-content .entry-footer {
-	margin-top: 0;
+.anp-panel  .entry-title {
+	color: #222;
+	font-size: 20px;
+	font-size: 1.25rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+    margin: 0;
+}
+
+
+.anp-panel .entry-content {
+    text-align: left;
+}
+
+.anp-panel .entry-content p {
+    text-align: left;
+}
+
+.anp-panel .page-link {
+	display: inline-block;
+	margin-top: 2em;
+}
+
+.anp-panel .page-link i {
+	margin-left: .75em;
 }
 
 .anp-panel.recent-posts {
@@ -393,73 +418,60 @@ start at 11.0 Layout due to basic.css
 	background-color: #3F5C6B;
 }
 
-.anp-front-page .anp-panel .entry-title {
-	text-transform: uppercase;
-    margin: 0;
-}
-
-
-.anp-front-page .anp-panel .entry-content {
-    text-align: left;
-}
-
-.anp-front-page .anp-panel .entry-content p {
-    text-align: left;
-}
-
-.anp-front-page .anp-panel .entry-content .page-link {
-	text-transform: uppercase;
-	font-weight: 500;
-	margin: 0 auto;
-}
-
-.anp-front-page .anp-panel .entry-content .page-link i {
-	margin-left: .75em;
-}
-
-.anp-front-page .anp-panel .entry-content h1:first-child,
-.anp-front-page .anp-panel .entry-content h2:first-child,
-.anp-front-page .anp-panel .entry-content h3:first-child,
-.anp-front-page .anp-panel .entry-content h4:first-child,
-.anp-front-page .anp-panel .entry-content h5:first-child,
-.anp-front-page .anp-panel .entry-content h6:first-child {
+/* first title in entry-content is different color */
+.anp-panel .entry-content h1:first-child,
+.anp-panel .entry-content h2:first-child,
+.anp-panel .entry-content h3:first-child,
+.anp-panel .entry-content h4:first-child,
+.anp-panel .entry-content h5:first-child,
+.anp-panel .entry-content h6:first-child {
 	color: #3F5C6B;
 	font-weight: 600;
+	margin-bottom: 1em;
 }
 
 
 
-.anp-front-page .anp-panel.recent-posts .entry-content h1:first-child,
-.anp-front-page .anp-panel.recent-posts .entry-content h2:first-child,
-.anp-front-page .anp-panel.recent-posts .entry-content h3:first-child,
-.anp-front-page .anp-panel.recent-posts .entry-content h4:first-child,
-.anp-front-page .anp-panel.recent-posts .entry-content h5:first-child,
-.anp-front-page .anp-panel.recent-posts .entry-content h6:first-child {
+.anp-panel.recent-posts .entry-content h1:first-child,
+.anp-panel.recent-posts .entry-content h2:first-child,
+.anp-panel.recent-posts .entry-content h3:first-child,
+.anp-panel.recent-posts .entry-content h4:first-child,
+.anp-panel.recent-posts .entry-content h5:first-child,
+.anp-panel.recent-posts .entry-content h6:first-child {
 	color: #fff;
     text-align: center;
 }
 
-.anp-front-page .anp-panel.recent-posts .recent-post-thumbnail {
+.anp-panel.recent-posts .recent-post-thumbnail {
     padding: 2em;
 }
 
 /* Front Page - Recent Posts */
-.anp-front-page .anp-panel.recent-posts .entry-footer,
-.anp-front-page .anp-panel.contact .entry-footer{
+.anp-panel.recent-posts .entry-footer,
+.anp-panel.contact .entry-footer{
 	text-align: center;
 }
 
-.anp-front-page .anp-panel.has-background-image {
+
+/* .has-background-image is required to change the color of the text for better visibility */
+.anp-panel.has-background-image {
     color: #000;
 }
 
-.anp-front-page .anp-panel.has-background-image .entry-content {
+.anp-panel.has-background-image .entry-content {
     background-color: rgba(255,255,255,0.9);
 	padding: 2.5em;
 }
 
 
-/* About Panel
+
+#recent-posts.anp-panel {
+	color: #FFF;
+	background-color: #3F5C6B;
+}
+
+
+/* About Panel (this is for the icon list)
 -------------------------*/
 
 .anp-panel.about ul {
@@ -479,37 +491,37 @@ start at 11.0 Layout due to basic.css
 
 
 
-/*--------------------------------------------------------------
-15.0 Regular Content
---------------------------------------------------------------*/
 
-.site-content-contain {
-	background-color: #fff;
-	position: relative;
-}
 
-.site-content {
-	padding: 3em 0 0;
-}
+
+
+
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------
 15.1 Posts
 --------------------------------------------------------------*/
 
-/* Post Landing Page */
 
-/* Post (Excerpt) Layout
---------------------------------------*/
-
-body.blog article {
-	padding: 0 1em;
+.blog .site-main article,
+.archive .site-main article,
+.search .site-main article {
+	padding: 0 1em 2em;
 	margin-bottom: 5em;
 }
 
-body.blog article:last-child {
+.blog .site-main article:last-child,
+.archive .site-main article:last-child,
+.search .site-main article:last-child  {
 	margin-bottom: 0;
 }
+
 
 .post-thumbnail,
 .entry-header,
@@ -519,8 +531,7 @@ body.blog article:last-child {
 }
 
 
-
-.entry-content .btn-bt{
+.entry-content .btn-bt {
   float:right;
 }
 
@@ -535,9 +546,29 @@ body.blog article:last-child {
 	clear: both;
 }
 
+/* Post Header (Includes title and meta)
+Title on both posts and pages
+Meta on posts only
+-----------------------------------------------*/
 
-.page-title,
-.page .panel-content .entry-title,
+.entry-header {
+	padding: 0;
+}
+
+.entry-title {
+    text-transform: uppercase;
+	font-weight: 600;
+	color: #222;
+}
+
+.entry-title:not(:first-child) {
+	padding-top: 0;
+}
+
+.entry-title a {
+
+}
+
 body.page:not(.anp-front-page) .entry-title {
 	color: #222;
 	font-size: 20px;
@@ -547,20 +578,53 @@ body.page:not(.anp-front-page) .entry-title {
 	text-transform: uppercase;
 }
 
-.entry-header .entry-title {
-	margin-bottom: 0.25em;
-}
-
 .entry-title a {
 	color: #333;
 	text-decoration: none;
 	margin-left: -2px;
 }
 
-.entry-title:not(:first-child) {
-	padding-top: 0;
+
+
+
+/* Post Meta
+----------------------------------------*/
+.entry-meta {
+	color: #767676;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	padding-bottom: 0.25em;
+	text-transform: uppercase;
 }
 
+.entry-meta a {
+	color: #767676;
+}
+.entry-meta {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+	margin-top: 0px;
+	line-height: 20px;
+	color: #999999;
+	font-size: 12px;
+}
+
+.entry-meta i {
+    font-size: 1.75em;
+	margin-right: .5em;
+}
+
+.entry-meta li {
+	float: left;
+	margin-right: 18px;
+	line-height: inherit;
+}
 .entry-meta {
 	color: #767676;
 	font-size: 11px;
@@ -575,6 +639,30 @@ body.page:not(.anp-front-page) .entry-title {
 	color: #767676;
 }
 
+
+
+/* Post Content
+------------------------------------*/
+
+.entry-content p {
+    margin-bottom: 1em;
+}
+
+.entry-content p:last-child {
+	margin-bottom: 0;
+}
+
+.entry-content p a {
+    color: #dbc76d;
+}
+
+
+
+
+
+
+
+
 .byline,
 .updated:not(.published) {
 	display: none;
@@ -585,24 +673,24 @@ body.page:not(.anp-front-page) .entry-title {
 	display: inline;
 }
 
-.pagination,
-.comments-pagination {
-	border-top: 1px solid #eee;
+
+
+
+/* Pagination
+-----------------------------------------*/
+
+.pagination {
+	border: 1px solid #eee;
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 800;
-	padding: 2em 0 3em;
+	padding: 2em;
 	text-align: center;
 }
 
-.pagination .icon,
-.comments-pagination .icon {
+.pagination .icon {
 	width: 0.666666666em;
 	height: 0.666666666em;
-}
-
-.comments-pagination {
-	border: 0;
 }
 
 .page-numbers {
@@ -611,7 +699,7 @@ body.page:not(.anp-front-page) .entry-title {
 }
 
 .page-numbers.current {
-	color: #767676;
+	color: #dbc76d;
 	display: inline-block;
 }
 
@@ -626,8 +714,6 @@ body.page:not(.anp-front-page) .entry-title {
 .prev.page-numbers,
 .next.page-numbers {
 	background-color: #ddd;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
 	display: inline-block;
 	font-size: 24px;
 	font-size: 1.5rem;
@@ -676,25 +762,7 @@ body.page:not(.anp-front-page) .entry-title {
 
 
 
-
-
-/* Aligned blockquotes */
-
-.entry-content blockquote.alignleft,
-.entry-content blockquote.alignright {
-	color: #666;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	width: 48%;
-}
-
 /* Blog landing, search, archives */
-
-.blog .site-main article,
-.archive .site-main article,
-.search .site-main article {
-	padding-bottom: 2em;
-}
 
 body:not(.anp-front-page) .entry-header {
 	padding: 1em 0;
@@ -730,6 +798,11 @@ body:not(.anp-front-page) .entry-header {
 	font-size: 13px;
 	font-size: 0.8125rem;
 }
+
+
+
+
+
 
 /* More tag */
 
@@ -933,10 +1006,12 @@ body:not(.anp-front-page) .entry-header {
 	text-transform: uppercase;
 }
 
-.page-subtitle{
-    
+.page-subtitle {
+    font-size: 14px;
+	font-size: .875rem;
+	font-weight: 100;
+	margin-left: 1.5em;
 }
-
 
 .page .entry-header .edit-link {
 	font-size: 14px;
@@ -971,15 +1046,40 @@ body:not(.anp-front-page) .entry-header {
 
 
 
-/*--------------------------------------------------------------
-16.0 Footer
---------------------------------------------------------------*/
-.site-info{
-	padding: 2em 0;
-	background-color: #eee;
-	text-align: center;
-	font-size: .75em;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------
@@ -994,11 +1094,11 @@ body:not(.anp-front-page) .entry-header {
 	padding-bottom: 3em;
 }
 
-h2.widget-title {
-	color: #222;
+.widget-title {
+	color: #444;
 	font-size: 13px;
 	font-size: 0.8125rem;
-	font-weight: 800;
+	font-weight: 700;
 	letter-spacing: 0.1818em;
 	margin-bottom: 1.5em;
 	text-transform: uppercase;
@@ -1169,18 +1269,28 @@ h2.widget-title {
 	position: relative;
 }
 
+/* this is a button */
 .search-form .search-submit {
 	bottom: 3px;
-	padding: 0.5em 1em;
 	position: absolute;
+	padding: 0.5em;
 	right: 3px;
 	top: 3px;
+	color: #eee;
+	border: none;
 }
 
 .search-form .search-submit .icon {
-	height: 24px;
-	top: -2px;
-	width: 24px;
+	font-size: 1.5em;
+}
+
+.search-form .search-submit:hover {
+  border: none;
+  background-color: transparent;
+
+}
+.search-form .search-submit:hover .icon {
+	color: #dbc76d;
 }
 
 /* Tag cloud widget */
@@ -1239,6 +1349,8 @@ h2.widget-title {
 
 
 
+
+
 /*--------------------------------------------------------------
 18.0 Media
 --------------------------------------------------------------*/
@@ -1283,10 +1395,13 @@ h2.widget-title {
 }
 
 h1 + .separator {
-    margin-bottom: 2.5em;
+    margin-bottom: 2em;
 }
 
-
+/* this brings the subtitle up closer to the separator */
+.separator + .page-subtitle {
+	margin-top: -1.5em;
+}
 
 
 
@@ -1393,86 +1508,10 @@ img.with-overlay {
 
 
 
-/* Entry Header (Includes title and meta)
------------------------------------------------*/
-
-.entry-header {
-	padding: 0;
-}
-
-.entry-title {
-    text-transform: uppercase;
-	font-weight: 600;
-	color: #222;
-}
-
-.entry-title:not(:first-child) {
-	padding-top: 0;
-}
-
-.entry-title a {
-
-}
 
 
 
 
-/* Post Meta
-----------------------------------------*/
-.entry-meta {
-	color: #767676;
-	font-size: 11px;
-	font-size: 0.6875rem;
-	font-weight: 800;
-	letter-spacing: 0.1818em;
-	padding-bottom: 0.25em;
-	text-transform: uppercase;
-}
-
-.entry-meta a {
-	color: #767676;
-}
-.entry-meta {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	width: 100%;
-	float: left;
-	margin-bottom: 15px;
-	margin-top: 0px;
-	line-height: 20px;
-	color: #999999;
-	font-size: 12px;
-}
-
-.entry-meta i {
-    font-size: 1.75em;
-	margin-right: .5em;
-}
-
-.entry-meta li {
-	float: left;
-	margin-right: 18px;
-	line-height: inherit;
-}
-
-
-
-
-/* Post Content
-------------------------------------*/
-
-.entry-content p {
-    margin-bottom: 1em;
-}
-
-.entry-content p:last-child {
-	margin-bottom: 0;
-}
-
-.entry-content p a {
-    color: #dbc76d;
-}
 
 
 
@@ -1593,17 +1632,6 @@ padding-bottom: 5em;
 .pricing-block .button {
 
 }
-
-
-
-
-
-
-
-
-
-
-
 .services-pricing ul.package-description {
 	text-align: center;
 }
@@ -1639,6 +1667,7 @@ padding-bottom: 5em;
 /* Pricing Table Title
 ------------------------------------------*/
 .pricing-table-title {
+									
 	color: #dbc76d;
 	font-weight: 100;
 	font-size: 2em;
@@ -1649,6 +1678,7 @@ padding-bottom: 5em;
 /* Pricing Table Price
 ------------------------------------------*/
 .pricing-table-price {
+									 
 	color: #222;
 	font-size: 3em;
 	font-weight: 300;
@@ -1660,6 +1690,7 @@ padding-bottom: 5em;
 /* Pricing Table List Title ("INCLUDES:")
 ------------------------------------------*/
 .pricing-table-tagline {
+									 
 	font-weight: 700;
 	letter-spacing: .1em;
 	text-transform: uppercase;
@@ -1682,23 +1713,12 @@ padding-bottom: 5em;
 
 
 
-
-
-
-
-
-
+/* Widgets
+------------------------------------------------*/
 
 .widget-header {
 	margin-bottom: 2em;
 }
-
-
-
-
-
-
-
 
 
 /* Testimonials
@@ -1729,17 +1749,6 @@ padding-bottom: 5em;
 .testimonial-date {
 	text-align: left;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1816,7 +1825,15 @@ padding-bottom: 5em;
 	letter-spacing: .3em;
 }
 
-.instagram-widget .icon,
 .footer-social-links .icon {
 	margin-right: 1em;
 }
+
+.site-info{
+	padding: 2em 0;
+	background-color: #eee;
+	text-align: center;
+	font-size: .75em;
+}
+
+

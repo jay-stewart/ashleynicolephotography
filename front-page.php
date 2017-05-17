@@ -13,8 +13,11 @@ in the following order:
 
 
 
+<?php get_template_part('template-parts/Front Page/welcome', 'panel'); ?>
 <?php get_template_part('template-parts/Front Page/recent-posts', 'panel'); ?>
 <?php get_template_part('template-parts/Front Page/testimonials', 'panel'); ?>
+<?php get_template_part('template-parts/Front Page/contact', 'panel'); ?>
+
 
 
 	

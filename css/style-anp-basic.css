@@ -1,4 +1,5 @@
 
+
 /*--------------------------------------------------------------
 1.0 Accessibility
 --------------------------------------------------------------*/
@@ -670,7 +671,7 @@ input[type="time"],
 input[type="url"],
 input[type="week"],
 textarea {
-	border: 1px solid #777;
+	border: 1px solid #e7e7e7;
 	color: #333;
 	background: #fff;
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));

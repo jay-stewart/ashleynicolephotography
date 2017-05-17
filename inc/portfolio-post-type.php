@@ -50,7 +50,7 @@ function portfolio_register() {
 	);
 
 
-	register_post_type( 'portfolio' , $args );
+	register_post_type( 'anp_portfolio' , $args );
 
 }
 

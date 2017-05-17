@@ -2,13 +2,6 @@
 19.0 Media Queries
 --------------------------------------------------------------*/
 
-/* Adjust positioning of edit shortcuts, override style in customize-preview.css */
-@media screen and (min-width: 20em) {
-
-	body.customize-partial-edit-shortcuts-shown .site-header .site-title {
-		padding-left: 0;
-	}
-}
 
 @media screen and (min-width: 33.75em) {
 
@@ -28,8 +21,7 @@
 		font-size: 1.875rem;
 	}
 
-	h2,
-	.page .panel-content .recent-posts .entry-title {
+	h2 {
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
@@ -54,12 +46,8 @@
 		font-size: 1rem;
 	}
 
-	.entry-content blockquote.alignleft,
-	.entry-content blockquote.alignright {
-		font-size: 14px;
-		font-size: 0.875rem;
-	}
 
+	
 	/* Fix image alignment */
 	img.alignleft {
 		float: left;
@@ -111,16 +99,7 @@
 	
 	/* Front Page */
 
-	.panel-content {
-		padding-bottom: 6em;
-		padding-top: 6em;
-	}
-
-	.page-one-column .panel-content .wrap {
-		max-width: 740px;
-	}
-
-	.panel-content .recent-posts .entry-header {
+	.anp-panel .recent-posts .entry-header {
 		margin-bottom: 0;
 	}
     
@@ -182,11 +161,7 @@
 		line-height: 1.5;
 	}
 
-	.entry-content blockquote.alignleft,
-	.entry-content blockquote.alignright {
-		font-size: 13px;
-		font-size: 0.8125rem;
-	}
+
 
 	/* Layout */
 	
@@ -194,26 +169,6 @@
 		padding-left: 4em;
 		padding-right: 4em;
 	}
-
-
-
-	.has-sidebar:not(.error404) #primary {
-		float: left;
-		width: 58%;
-	}
-
-	.has-sidebar #secondary {
-		float: right;
-		padding-top: 0;
-		width: 36%;
-	}
-
-	.error404 #primary {
-		float: none;
-	}
-
-	
-	
 
 
 	/* Scroll down arrow */
@@ -231,6 +186,8 @@
 	}
 	.custom-header .menu-scroll-down-container a {
 		display: inline-block;
+				 
+				 
 		color: #fff;
 	}
 	
@@ -245,6 +202,7 @@
 	
 
 
+
 	/* Front Page
 	-------------------------------------------------------*/
 
@@ -252,11 +210,32 @@
 	/* Go full height */
 
 	.anp-front-page .custom-header {
+										
 		height: auto;
 	}
 
 	.anp-front-page .custom-header-image {
+				
 		position: relative;
+  
+
+													   
+											  
+			
+					 
+  
+
+																		 
+			
+			   
+		  
+					 
+		   
+		 
+  
+
+													   
+											  
 		height: 1200px;
 		height: 100vh;
 		max-height: 100%;
@@ -266,10 +245,15 @@
 	
 	
 	
-
-	/* Content */
 	
-	.panel-content .entry-featured-image.on-left {
+	/* Front Page */
+	
+	.anp-panel {
+		padding-bottom: 6em;
+		padding-top: 6em;
+	}
+	
+	.anp-panel .entry-featured-image.on-left {
 		position: relative;
 		padding: 15% 0;
         margin-right: 15%;
@@ -277,13 +261,13 @@
 	}
 	
     
-    .panel-content .entry-featured-image.on-left img{
+    .anp-panel .entry-featured-image.on-left img{
         position: relative;
         right: -15%;
 	}
 		
 		    
-	.panel-content .entry-featured-image.on-right {
+	.anp-panel .entry-featured-image.on-right {
 		position: relative;
 		padding: 15% 0;
         margin-left: 15%;
@@ -291,18 +275,15 @@
 	}
 	
     
-    .panel-content .entry-featured-image.on-right img{
+    .anp-panel .entry-featured-image.on-right img{
         position: relative;
         left: -15%;
 	}
 		
-		
-		
-		
 	.anp-panel .row {
 		display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items:center;
     }
     
 
@@ -315,25 +296,29 @@
 	
 	/* Front Page - Recent Posts */
 
-	.panel-content .recent-posts article {
+	.anp-panel .recent-posts article {
 		margin-bottom: 4em;
 	}
 
-	.panel-content .recent-posts .entry-header,
-	.panel-content .recent-posts .entry-content {
+	.anp-panel .recent-posts .entry-header,
+	.anp-panel .recent-posts .entry-content {
 		float: none;
 		width: 100%;
 	}
 
-	.panel-content .recent-posts .entry-header {
+	.anp-panel .recent-posts .entry-header {
 		margin-bottom: 1.5em;
 	}
 
-	.page .panel-content .recent-posts .entry-title {
+	.page .anp-panel .recent-posts .entry-title {
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
 
+	
+	
+	
+	
 	/* Posts */
 
 	.site-content {
@@ -376,9 +361,6 @@
 		width: 32px;
 	}
 
-
-
-
 	.blog .site-main > article,
 	.archive .site-main > article,
 	.search .site-main > article {
@@ -402,54 +384,11 @@
 	}
 
 
-	/* Entry content */
 
-	/* without sidebar */
 
-	:not(.has-sidebar) .entry-content blockquote.alignleft {
-		margin-left: -17.5%;
-		width: 48%;
-	}
 
-	:not(.has-sidebar) .entry-content blockquote.alignright {
-		margin-right: -17.5%;
-		width: 48%;
-	}
 
-	/* with sidebar */
 
-	.has-sidebar .entry-content blockquote.alignleft {
-		margin-left: 0;
-		width: 34%;
-	}
-
-	.has-sidebar .entry-content blockquote.alignright {
-		margin-right: 0;
-		width: 34%;
-	}
-
-	.has-sidebar #primary .entry-content blockquote.alignright.below-entry-meta {
-		margin-right: -72.5%;
-		width: 62%;
-	}
-
-	/* blog and archive */
-
-	.blog:not(.has-sidebar) .entry-content blockquote.alignleft,
-	.anp-front-page.page-two-column .entry-content blockquote.alignleft,
-	.archive:not(.has-sidebar) .entry-content blockquote.alignleft,
-	.page-two-column .entry-content blockquote.alignleft {
-		margin-left: -72.5%;
-		width: 62%;
-	}
-
-	.blog:not(.has-sidebar) .entry-content blockquote.alignright,
-	.anp-front-page.page-two-column .entry-content blockquote.alignright,
-	.archive:not(.has-sidebar) .entry-content blockquote.alignright,
-	.page-two-column .entry-content blockquote.alignright {
-		margin-right: 0;
-		width: 36%;
-	}
 
 	/* Post formats */
 
@@ -463,12 +402,7 @@
     .page-header {
         max-width: 50%;
     }
-    
-	.page.page-one-column .entry-header,
-	.anp-front-page.page-one-column .entry-header,
-	.archive.page-one-column:not(.has-sidebar) .page-header {
-		margin-bottom: 4em;
-	}
+   
 
 	.page:not(.home) #content {
 		padding-bottom: 3.25em;
@@ -524,7 +458,7 @@
 
 	/* Widgets */
 
-	h2.widget-title {
+	.widget-title {
 		font-size: 11px;
 		font-size: 0.6875rem;
 		margin-bottom: 2em;
@@ -541,11 +475,8 @@
 
 	.site-info {
 		padding: 2em 0;
-	}
-
-	.site-info {
-	font-size: 14px;
-	font-size: 0.875rem;
+		font-size: 14px;
+		font-size: 0.875rem;
 	}
 
 	/* Gallery Columns */
@@ -572,7 +503,7 @@
 	
 	
 	
-		.footer-social-links li {
+	.footer-social-links li {
 		width: auto;
 		padding-left: 3em;
 		padding-right: 3em;
@@ -601,8 +532,6 @@
 		padding-left: 6em;
 		padding-right: 6em;
 	}
-	
-
 	
 	.top-navbar:before,
 	.top-navbar:after {
@@ -653,19 +582,6 @@
 		display: none;
 	}
 
-	.site-navigation-fixed.top-navbar {
-		bottom: auto;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		width: 100%;
-		z-index: 7;
-	}
-
-	.admin-bar .site-navigation-fixed.top-navbar .main-navigation {
-		top: 32px;
-	}
 	
 /* Main Navigation */
 
@@ -876,29 +792,6 @@
 	}
 
 }
-
-@media screen and ( min-width: 79em ) {
-
-	.has-sidebar .entry-content blockquote.alignleft {
-		margin-left: -20%;
-	}
-
-	.blog:not(.has-sidebar) .entry-content blockquote.alignright,
-	.archive:not(.has-sidebar) .entry-content blockquote.alignright,
-	.page-two-column .entry-content blockquote.alignright,
-	.anp-front-page .entry-content blockquote.alignright {
-		margin-right: -20%;
-	}
-}
-
-@media screen and ( max-width: 48.875em ) and ( min-width: 48em ) {
-
-	.admin-bar .site-navigation-fixed.top-navbar .main-navigation,
-	.admin-bar .site-navigation-hidden.top-navbar .main-navigation {
-		top: 46px;
-	}
-}
-
 
 
 

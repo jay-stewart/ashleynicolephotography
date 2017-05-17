@@ -37,7 +37,7 @@ function anp_register_meta_boxes( $meta_boxes ) {
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
 		'title'      => esc_html__( 'Select Portfolio Images', 'anp' ),
 		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
-		'post_types' => array( 'portfolio' ),
+		'post_types' => array( 'anp_portfolio' ),
 		// Where the meta box appear: normal (default), advanced, side. Optional.
 		'context'    => 'normal',
 		// Order of meta box: high (default), low. Optional.
@@ -111,7 +111,61 @@ function anp_register_meta_boxes( $meta_boxes ) {
 	);
 	
 	
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'page-subtitle',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => 'Page Subtitle',
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array( 'page' ),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'high',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		// List of meta fields
+		'fields'     => array(
+		
+			
+			array(
+				'name'             => 'Subtitle',
+				'id'               => $prefix . "page-subtitle",
+				'type'             => 'text',
+			),
+
+		),
+	);
 	
+	
+	
+		$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'background-image',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => esc_html__( 'Select Background Image', 'anp' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array( 'anp_front-page-panel' ),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'high',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		// List of meta fields
+		'fields'     => array(
+		
+			// IMAGE ADVANCED (WP 3.5+)
+			array(
+				'name'             => esc_html__( 'Background Image', 'anp' ),
+				'id'               => "{$prefix}imgadv",
+				'type'             => 'image_advanced',
+				'max_file_uploads' => 1,
+			),
+
+
+		),
+	);
 	
 	
 	
